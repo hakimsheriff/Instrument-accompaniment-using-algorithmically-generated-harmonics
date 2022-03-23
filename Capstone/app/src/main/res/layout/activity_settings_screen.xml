@@ -11,8 +11,8 @@
         android:id="@+id/spinnerMajorMinor"
         android:layout_width="109dp"
         android:layout_height="36dp"
-        android:layout_marginStart="164dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="28dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -30,8 +30,8 @@
         android:id="@+id/buttonStart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="56dp"
         android:text="Start"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonLock" />
@@ -40,8 +40,8 @@
         android:id="@+id/linearLayout"
         android:layout_width="318dp"
         android:layout_height="55dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="60dp"
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_show_pattern">
@@ -87,14 +87,20 @@
             android:layout_height="wrap_content"
             android:onClick="onCheckboxClicked"
             android:text="D" />
+        <CheckBox
+            android:id="@+id/checkbox_7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onCheckboxClicked"
+            android:text="E" />
 
     </LinearLayout>
 
     <SeekBar
         android:id="@+id/seekBar"
-        android:layout_width="286dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="108dp"
+        android:layout_width="261dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="84dp"
         android:layout_marginTop="12dp"
         android:max="220"
         android:min="0"
@@ -105,8 +111,8 @@
         android:id="@+id/button_octave_down"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:text="Octave down"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/keyManual" />
@@ -115,8 +121,8 @@
         android:id="@+id/button_octave_up"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
         android:text="Octave up"
         app:layout_constraintStart_toEndOf="@+id/button_octave_down"
         app:layout_constraintTop_toBottomOf="@+id/keyManual" />
@@ -125,25 +131,25 @@
         android:id="@+id/button_show_pattern"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
         android:text="Show last pattern"
-        app:layout_constraintStart_toEndOf="@+id/buttonStart"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonLockTime" />
 
     <Spinner
         android:id="@+id/spinnerKeys"
         android:layout_width="104dp"
         android:layout_height="38dp"
-        android:layout_marginStart="288dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginStart="256dp"
+        android:layout_marginTop="28dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/keyManual"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="75dp"
+        android:layout_height="39dp"
         android:layout_marginStart="12dp"
         android:layout_marginTop="28dp"
         android:text="Auto"
@@ -154,9 +160,9 @@
         android:id="@+id/textBPM"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="20dp"
-        android:text="BPM"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:text="BPM : "
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_octave_down" />
 
@@ -172,12 +178,12 @@
 
     <SeekBar
         android:id="@+id/seekBar2"
-        android:layout_width="286dp"
-        android:layout_height="30dp"
+        android:layout_width="239dp"
+        android:layout_height="25dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="28dp"
-        android:min="0"
+        android:layout_marginTop="12dp"
         android:max="100"
+        android:min="0"
         app:layout_constraintStart_toEndOf="@+id/textLength"
         app:layout_constraintTop_toBottomOf="@+id/seekBar" />
 
@@ -185,9 +191,9 @@
         android:id="@+id/textLength"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="36dp"
-        android:text="Note length"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="24dp"
+        android:text="Note length : "
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textBPM" />
 
@@ -195,8 +201,8 @@
         android:id="@+id/buttonSequential"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="16dp"
         android:text="Auto"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/seekBar2" />
@@ -205,7 +211,7 @@
         android:id="@+id/buttonContinuous"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
         android:text="Standard"
         app:layout_constraintStart_toEndOf="@+id/buttonSequential"
@@ -215,8 +221,8 @@
         android:id="@+id/buttonLock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="8dp"
         android:text="Lock to key"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonArpegiator" />
@@ -225,8 +231,8 @@
         android:id="@+id/buttonLockTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:text="Lock to time"
         app:layout_constraintStart_toEndOf="@+id/buttonLock"
         app:layout_constraintTop_toBottomOf="@+id/buttonArpegiator" />

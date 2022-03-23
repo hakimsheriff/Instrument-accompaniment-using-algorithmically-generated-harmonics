@@ -11,6 +11,7 @@ import android.widget.CheckBox;
 import android.widget.RadioButton;
 import android.widget.SeekBar;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class SettingsScreen extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
@@ -20,7 +21,9 @@ public class SettingsScreen extends AppCompatActivity implements AdapterView.OnI
     Spinner majorMinorSpinner;
     SeekBar seekbarBPM;
     SeekBar seekbarLength;
-    String message = "SGB000G000KA00O0A00000S0000000";
+    TextView textBPM;
+    TextView textLength;
+    String message = "SGB000G000KA00O0A00000S00000000";
     boolean keyManualAuto = true;
     boolean arpegiatorEnabled = true;
     boolean sequentialRandom = true;
@@ -28,6 +31,7 @@ public class SettingsScreen extends AppCompatActivity implements AdapterView.OnI
     boolean lockedKey = true;
     boolean lockedTime = true;
     int octaveNumber = 1;
+    Button buttonPattern;
 
 
     @Override
@@ -35,12 +39,26 @@ public class SettingsScreen extends AppCompatActivity implements AdapterView.OnI
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings_screen);
 
+        textBPM = findViewById(R.id.textBPM);
+        textLength = findViewById(R.id.textLength);
+
+        buttonPattern = (Button) findViewById(R.id.button_show_pattern);
+        buttonPattern.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Log.i(TAG, "This is a magic log message!");
+
+            }
+        });
+
         seekbarBPM = (SeekBar)findViewById(R.id.seekBar);
         seekbarBPM.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 //this is where you use the value 'progress'
                 message = message.substring(0,3)+(progress/100)+((progress/10)%10)+(progress%10)+message.substring(6);
+                textBPM.setText("BPM : " + progress);
+                buttonPattern.setText(message);
             }
 
             @Override
@@ -60,6 +78,8 @@ public class SettingsScreen extends AppCompatActivity implements AdapterView.OnI
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 //this is where you use the value 'progress'
                 message = message.substring(0,7)+(progress/100)+((progress/10)%10)+(progress%10)+message.substring(10);
+                textLength.setText("Note length : " + progress);
+                buttonPattern.setText(message);
             }
 
             @Override
@@ -74,13 +94,13 @@ public class SettingsScreen extends AppCompatActivity implements AdapterView.OnI
         });
 
         keySpinner = findViewById(R.id.spinnerKeys);
-        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this, R.array.genres, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this, R.array.keys, android.R.layout.simple_spinner_item);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         keySpinner.setAdapter(adapter2);
         keySpinner.setOnItemSelectedListener(this);
 
         majorMinorSpinner = findViewById(R.id.spinnerMajorMinor);
-        ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(this, R.array.genres, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(this, R.array.MajorMinor, android.R.layout.simple_spinner_item);
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         majorMinorSpinner.setAdapter(adapter3);
         majorMinorSpinner.setOnItemSelectedListener(this);
@@ -107,6 +127,7 @@ public class SettingsScreen extends AppCompatActivity implements AdapterView.OnI
                     keySpinner.setVisibility(View.INVISIBLE);
                     majorMinorSpinner.setVisibility(View.INVISIBLE);
                 }
+                buttonPattern.setText(message);
                 //Log.i(TAG, "This is a magic log message!");
             }
         });
@@ -116,10 +137,11 @@ public class SettingsScreen extends AppCompatActivity implements AdapterView.OnI
             @Override
             public void onClick(View v) {
                 //Log.i(TAG, "This is a magic log message!");
-                if(octaveNumber>1) {
+                if(octaveNumber>0) {
                     octaveNumber--;
                 }
                 message = message.substring(0,14)+(char)(octaveNumber+48)+message.substring(15);
+                buttonPattern.setText(message);
             }
         });
 
@@ -128,10 +150,11 @@ public class SettingsScreen extends AppCompatActivity implements AdapterView.OnI
             @Override
             public void onClick(View v) {
                 //Log.i(TAG, "This is a magic log message!");
-                if(octaveNumber<7) {
+                if(octaveNumber<6) {
                     octaveNumber++;
                 }
                 message = message.substring(0,14)+(char)(octaveNumber+48)+message.substring(15);
+                buttonPattern.setText(message);
             }
         });
 
@@ -159,7 +182,7 @@ public class SettingsScreen extends AppCompatActivity implements AdapterView.OnI
                     buttonSequential.setVisibility(View.VISIBLE);
                     buttonContinuous.setVisibility(View.VISIBLE);
                 }
-
+                buttonPattern.setText(message);
             }
         });
 
@@ -177,6 +200,7 @@ public class SettingsScreen extends AppCompatActivity implements AdapterView.OnI
                     buttonSequential.setText("Auto");
                     message = message.substring(0,17)+'R'+message.substring(18);
                 }
+                buttonPattern.setText(message);
             }
         });
 
@@ -194,6 +218,7 @@ public class SettingsScreen extends AppCompatActivity implements AdapterView.OnI
                     buttonContinuous.setText("Standard");
                     message = message.substring(0,18)+'S'+message.substring(19);
                 }
+                buttonPattern.setText(message);
             }
         });
 
@@ -211,6 +236,7 @@ public class SettingsScreen extends AppCompatActivity implements AdapterView.OnI
                     buttonLock.setText("Lock to key");
                     message = message.substring(0,19)+'L'+message.substring(20);
                 }
+                buttonPattern.setText(message);
             }
         });
 
@@ -227,10 +253,11 @@ public class SettingsScreen extends AppCompatActivity implements AdapterView.OnI
                     buttonLockTime.setText("Lock to time");
                     message = message.substring(0,20)+'F'+message.substring(21);
                 }
+                buttonPattern.setText(message);
             }
         });
 
-        Button buttonStart = (Button) findViewById(R.id.button);
+        Button buttonStart = (Button) findViewById(R.id.buttonStart);
         buttonStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -241,14 +268,7 @@ public class SettingsScreen extends AppCompatActivity implements AdapterView.OnI
             }
         });
 
-        Button buttonPattern = (Button) findViewById(R.id.button_show_pattern);
-        buttonPattern.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Log.i(TAG, "This is a magic log message!");
 
-            }
-        });
 
     }
 
@@ -279,6 +299,17 @@ public class SettingsScreen extends AppCompatActivity implements AdapterView.OnI
 
     }
 
+    boolean check1 = false;
+    boolean check2 = false;
+    boolean check3 = false;
+    boolean check4 = false;
+    boolean check5 = false;
+    boolean check6 = false;
+    boolean check7 = false;
+    boolean theChecker = true;
+    int index = 0;
+    int total = 0;
+
     public void onCheckboxClicked(View view) {
         // Is the view now checked?
         boolean checked = ((CheckBox) view).isChecked();
@@ -286,50 +317,146 @@ public class SettingsScreen extends AppCompatActivity implements AdapterView.OnI
         // Check which checkbox was clicked
         switch(view.getId()) {
             case R.id.checkbox_1:
-
+                check1 = !check1;
                 break;
             case R.id.checkbox_2:
-
+                check2 = !check2;
+                break;
+            case R.id.checkbox_3:
+                check3 = !check3;
+                break;
+            case R.id.checkbox_4:
+                check4 = !check4;
+                break;
+            case R.id.checkbox_5:
+                check5 = !check5;
+                break;
+            case R.id.checkbox_6:
+                check6 = !check6;
+                break;
+            case R.id.checkbox_7:
+                check7 = !check7;
                 break;
         }
+
+        message = message.substring(0,24)+'0'+'0'+'0'+'0'+'0'+'0'+'0'+'0';
+
+        if(check1) {
+            message = message.substring(0,24+index)+'0'+message.substring(25+index);
+            index++;
+            total++;
+        }
+        if(check2) {
+            message = message.substring(0,24+index)+'1'+message.substring(25+index);
+            index++;
+            total++;
+        }
+        if(check3) {
+            message = message.substring(0,24+index)+'2'+message.substring(25+index);
+            index++;
+            total++;
+        }
+        if(check4) {
+            message = message.substring(0,24+index)+'3'+message.substring(25+index);
+            index++;
+            total++;
+        }
+        if(check5) {
+            message = message.substring(0,24+index)+'4'+message.substring(25+index);
+            index++;
+            total++;
+        }
+        if(check6) {
+            message = message.substring(0,24+index)+'5'+message.substring(25+index);
+            index++;
+            total++;
+        }
+        if(check7) {
+            message = message.substring(0,24+index)+'6'+message.substring(25+index);
+            index++;
+            total++;
+        }
+
+        message = message.substring(0,23)+total+message.substring(24);
+        buttonPattern.setText(message);
+        index = 0;
+        total = 0;
     }
+
+
+    String list1 = "";
+    String list2 = "";
 
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String text = parent.getItemAtPosition(position).toString();
         Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT).show();
+
         if(text.equals("Major")) {
-
+            list1 = "Major";
         } else if(text.equals("Minor")) {
-
-        } else if(text.equals("A")) {
-            message = message.substring(0,12)+'0'+'1'+message.substring(14);
-        } else if(text.equals("A#/Bb")) {
-            message = message.substring(0,12)+'0'+'2'+message.substring(14);
-        } else if(text.equals("B")) {
-            message = message.substring(0,12)+'0'+'3'+message.substring(14);
-        } else if(text.equals("C")) {
-            message = message.substring(0,12)+'0'+'4'+message.substring(14);
-        } else if(text.equals("C#/Db")) {
-            message = message.substring(0,12)+'0'+'5'+message.substring(14);
-        } else if(text.equals("D")) {
-            message = message.substring(0,12)+'0'+'6'+message.substring(14);
-        } else if(text.equals("D#/Eb")) {
-            message = message.substring(0,12)+'0'+'7'+message.substring(14);
-        } else if(text.equals("E")) {
-            message = message.substring(0,12)+'0'+'8'+message.substring(14);
-        } else if(text.equals("F")) {
-            message = message.substring(0,12)+'0'+'9'+message.substring(14);
-        } else if(text.equals("F#/Gb")) {
-            message = message.substring(0,12)+'1'+'0'+message.substring(14);
-        } else if(text.equals("G")) {
-            message = message.substring(0,12)+'1'+'1'+message.substring(14);
-        } else if(text.equals("G#/Ab")) {
-            message = message.substring(0,12)+'1'+'2'+message.substring(14);
-        } else {
-
+            list1 = "Minor";
         }
+        if(list1.equals("Major")) {
+            if(text.equals("A")) {
+                message = message.substring(0,12)+'0'+'9'+message.substring(14);
+            } else if(text.equals("A#/Bb")) {
+                message = message.substring(0,12)+'1'+'0'+message.substring(14);
+            } else if(text.equals("B")) {
+                message = message.substring(0,12)+'1'+'1'+message.substring(14);
+            } else if(text.equals("C")) {
+                message = message.substring(0,12)+'0'+'0'+message.substring(14);
+            } else if(text.equals("C#/Db")) {
+                message = message.substring(0,12)+'0'+'1'+message.substring(14);
+            } else if(text.equals("D")) {
+                message = message.substring(0,12)+'0'+'2'+message.substring(14);
+            } else if(text.equals("D#/Eb")) {
+                message = message.substring(0,12)+'0'+'3'+message.substring(14);
+            } else if(text.equals("E")) {
+                message = message.substring(0,12)+'0'+'4'+message.substring(14);
+            } else if(text.equals("F")) {
+                message = message.substring(0,12)+'0'+'5'+message.substring(14);
+            } else if(text.equals("F#/Gb")) {
+                message = message.substring(0,12)+'0'+'6'+message.substring(14);
+            } else if(text.equals("G")) {
+                message = message.substring(0,12)+'0'+'7'+message.substring(14);
+            } else if(text.equals("G#/Ab")) {
+                message = message.substring(0,12)+'0'+'8'+message.substring(14);
+            } else {
+
+            }
+        } else if(list1.equals("Minor")) {
+            if(text.equals("A")) {
+                message = message.substring(0,12)+'0'+'1'+message.substring(14);
+            } else if(text.equals("A#/Bb")) {
+                message = message.substring(0,12)+'0'+'2'+message.substring(14);
+            } else if(text.equals("B")) {
+                message = message.substring(0,12)+'0'+'3'+message.substring(14);
+            } else if(text.equals("C")) {
+                message = message.substring(0,12)+'0'+'4'+message.substring(14);
+            } else if(text.equals("C#/Db")) {
+                message = message.substring(0,12)+'0'+'5'+message.substring(14);
+            } else if(text.equals("D")) {
+                message = message.substring(0,12)+'0'+'6'+message.substring(14);
+            } else if(text.equals("D#/Eb")) {
+                message = message.substring(0,12)+'0'+'7'+message.substring(14);
+            } else if(text.equals("E")) {
+                message = message.substring(0,12)+'0'+'8'+message.substring(14);
+            } else if(text.equals("F")) {
+                message = message.substring(0,12)+'0'+'9'+message.substring(14);
+            } else if(text.equals("F#/Gb")) {
+                message = message.substring(0,12)+'1'+'0'+message.substring(14);
+            } else if(text.equals("G")) {
+                message = message.substring(0,12)+'1'+'1'+message.substring(14);
+            } else if(text.equals("G#/Ab")) {
+                message = message.substring(0,12)+'0'+'0'+message.substring(14);
+            } else {
+
+            }
+        }
+
+        buttonPattern.setText(message);
     }
 
     @Override
