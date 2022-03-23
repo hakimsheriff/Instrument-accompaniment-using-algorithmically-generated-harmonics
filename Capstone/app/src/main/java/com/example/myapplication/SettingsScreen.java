@@ -386,17 +386,20 @@ public class SettingsScreen extends AppCompatActivity implements AdapterView.OnI
 
     String list1 = "";
     String list2 = "";
+    String text = "";
 
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        String text = parent.getItemAtPosition(position).toString();
+        String text2 = parent.getItemAtPosition(position).toString();
         Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT).show();
 
-        if(text.equals("Major")) {
+        if(text2.equals("Major")) {
             list1 = "Major";
-        } else if(text.equals("Minor")) {
+        } else if(text2.equals("Minor")) {
             list1 = "Minor";
+        } else {
+            text = text2;
         }
         if(list1.equals("Major")) {
             if(text.equals("A")) {
