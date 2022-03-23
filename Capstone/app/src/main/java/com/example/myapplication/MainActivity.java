@@ -24,7 +24,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-    public static final String EXTRA_TEXT = "com.example.myapplication.EXTRA_TEXT";
+    public static final String EXTRA_TEXT = "com.example.myapplication.example.EXTRA_TEXT";
 
     private static final String TAG = "DemoInitialApp";
     Spinner keySpinner;
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings_screen);
+        setContentView(R.layout.activity_main);
 
         textBPM = findViewById(R.id.textBPM);
         textLength = findViewById(R.id.textLength);

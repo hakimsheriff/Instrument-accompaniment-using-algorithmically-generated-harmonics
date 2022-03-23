@@ -42,7 +42,7 @@ public class SettingsScreen extends AppCompatActivity implements BLEControllerLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_settings_screen);
 
         Intent intent = getIntent();
         String sendingWord = intent.getStringExtra(MainActivity.EXTRA_TEXT);
