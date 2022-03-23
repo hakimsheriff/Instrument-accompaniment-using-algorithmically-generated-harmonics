@@ -7,93 +7,44 @@
     tools:context=".SettingsScreen">
 
 
+    <Spinner
+        android:id="@+id/spinnerMajorMinor"
+        android:layout_width="109dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="164dp"
+        android:layout_marginTop="36dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="44dp"
         android:text="Key :"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btnDoMagic"
+        android:id="@+id/buttonStart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
+        android:layout_marginStart="52dp"
         android:layout_marginTop="16dp"
         android:text="Start"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_time_signature" />
-
-    <RadioGroup
-        android:id="@+id/radio_KeyGroup"
-        android:layout_width="313dp"
-        android:layout_height="54dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toEndOf="@+id/textView3"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <RadioButton
-            android:id="@+id/radio_key_auto"
-            android:layout_width="85dp"
-            android:layout_height="wrap_content"
-            android:onClick="onRadioButtonClicked"
-            android:text="Auto" />
-
-        <RadioButton
-            android:id="@+id/radio_key_manual"
-            android:layout_width="95dp"
-            android:layout_height="wrap_content"
-            android:onClick="onRadioButtonClicked"
-            android:text="Manual" />
-
-        <RadioButton
-            android:id="@+id/radio_key_arpegiator"
-            android:layout_width="117dp"
-            android:layout_height="wrap_content"
-            android:onClick="onRadioButtonClicked"
-            android:text="Arpegiator" />
-    </RadioGroup>
-
-    <RadioGroup
-        android:id="@+id/radioHarmonyGroup"
-        android:layout_width="201dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="12dp"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/radio_KeyGroup">
-
-        <RadioButton
-            android:id="@+id/radio_harmony_auto"
-            android:layout_width="85dp"
-            android:layout_height="wrap_content"
-            android:onClick="onRadioButtonClicked"
-            android:text="Auto" />
-
-        <RadioButton
-            android:id="@+id/radio_harmony_manual"
-            android:layout_width="95dp"
-            android:layout_height="wrap_content"
-            android:onClick="onRadioButtonClicked"
-            android:text="Manual" />
-
-    </RadioGroup>
+        app:layout_constraintTop_toBottomOf="@+id/buttonLock" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="318dp"
         android:layout_height="55dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="24dp"
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioHarmonyGroup">
+        app:layout_constraintTop_toBottomOf="@+id/button_show_pattern">
 
         <CheckBox
             android:id="@+id/checkbox_1"
@@ -139,156 +90,145 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="324dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="4dp"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
-
-        <CheckBox
-            android:id="@+id/checkbox_7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onCheckboxClicked"
-            android:text="D#" />
-
-        <CheckBox
-            android:id="@+id/checkbox_8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onCheckboxClicked"
-            android:text="E" />
-
-        <CheckBox
-            android:id="@+id/checkbox_9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onCheckboxClicked"
-            android:text="F" />
-
-        <CheckBox
-            android:id="@+id/checkbox_10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onCheckboxClicked"
-            android:text="F#" />
-
-        <CheckBox
-            android:id="@+id/checkbox_11"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onCheckboxClicked"
-            android:text="G" />
-
-        <CheckBox
-            android:id="@+id/checkbox_12"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onCheckboxClicked"
-            android:text="G#" />
-    </LinearLayout>
-
     <SeekBar
         android:id="@+id/seekBar"
-        android:layout_width="319dp"
-        android:layout_height="28dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_usb" />
-
-    <Spinner
-        android:id="@+id/spinner1"
-        android:layout_width="212dp"
-        android:layout_height="37dp"
-        android:layout_marginStart="32dp"
-
+        android:layout_width="286dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="108dp"
         android:layout_marginTop="12dp"
-        app:layout_constraintStart_toEndOf="@+id/text_time_signature"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar" />
+        android:max="220"
+        android:min="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_octave_up" />
 
     <Button
         android:id="@+id/button_octave_down"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="20dp"
         android:text="Octave down"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+        app:layout_constraintTop_toBottomOf="@+id/keyManual" />
 
     <Button
         android:id="@+id/button_octave_up"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="20dp"
         android:text="Octave up"
         app:layout_constraintStart_toEndOf="@+id/button_octave_down"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
-
-    <TextView
-        android:id="@+id/text_cadence"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
-        android:text="Cadence : "
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_octave_down" />
-
-    <Button
-        android:id="@+id/button_usb"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="12dp"
-        android:text="Usb midi clock"
-        app:layout_constraintStart_toEndOf="@+id/text_cadence"
-        app:layout_constraintTop_toBottomOf="@+id/button_octave_down" />
-
-    <Button
-        android:id="@+id/button_manual"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
-        android:text="Manual"
-        app:layout_constraintStart_toEndOf="@+id/button_usb"
-        app:layout_constraintTop_toBottomOf="@+id/button_octave_up" />
-
-    <TextView
-        android:id="@+id/text_time_signature"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="20dp"
-        android:text="Time signature"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar" />
+        app:layout_constraintTop_toBottomOf="@+id/keyManual" />
 
     <Button
         android:id="@+id/button_show_pattern"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="16dp"
         android:text="Show last pattern"
-        app:layout_constraintStart_toEndOf="@+id/btnDoMagic"
-        app:layout_constraintTop_toBottomOf="@+id/spinner1" />
+        app:layout_constraintStart_toEndOf="@+id/buttonStart"
+        app:layout_constraintTop_toBottomOf="@+id/buttonLockTime" />
+
+    <Spinner
+        android:id="@+id/spinnerKeys"
+        android:layout_width="104dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="288dp"
+        android:layout_marginTop="36dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/keyManual"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="28dp"
+        android:text="Auto"
+        app:layout_constraintStart_toEndOf="@+id/textView3"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="71dp"
-        android:layout_height="34dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="36dp"
-        android:text="Harmony :"
+        android:id="@+id/textBPM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="20dp"
+        android:text="BPM"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/button_octave_down" />
+
+    <Button
+        android:id="@+id/buttonArpegiator"
+        android:layout_width="129dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="24dp"
+        android:text="Arpegiator enabled"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textLength" />
+
+    <SeekBar
+        android:id="@+id/seekBar2"
+        android:layout_width="286dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="28dp"
+        android:min="0"
+        android:max="100"
+        app:layout_constraintStart_toEndOf="@+id/textLength"
+        app:layout_constraintTop_toBottomOf="@+id/seekBar" />
+
+    <TextView
+        android:id="@+id/textLength"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="36dp"
+        android:text="Note length"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textBPM" />
+
+    <Button
+        android:id="@+id/buttonSequential"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="24dp"
+        android:text="Auto"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seekBar2" />
+
+    <Button
+        android:id="@+id/buttonContinuous"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="24dp"
+        android:text="Standard"
+        app:layout_constraintStart_toEndOf="@+id/buttonSequential"
+        app:layout_constraintTop_toBottomOf="@+id/seekBar2" />
+
+    <Button
+        android:id="@+id/buttonLock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="20dp"
+        android:text="Lock to key"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonArpegiator" />
+
+    <Button
+        android:id="@+id/buttonLockTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="20dp"
+        android:text="Lock to time"
+        app:layout_constraintStart_toEndOf="@+id/buttonLock"
+        app:layout_constraintTop_toBottomOf="@+id/buttonArpegiator" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

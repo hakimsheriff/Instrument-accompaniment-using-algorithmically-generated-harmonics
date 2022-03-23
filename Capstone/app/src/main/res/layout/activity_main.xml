@@ -15,7 +15,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="22dp"
         android:layout_marginTop="239dp"
-        android:text="Disconnect" />
+        android:text="Connect" />
 
     <Button
         android:id="@+id/switchButton"
