@@ -140,7 +140,7 @@ public class SettingsScreen extends AppCompatActivity implements AdapterView.OnI
                 if(octaveNumber>0) {
                     octaveNumber--;
                 }
-                message = message.substring(0,14)+(char)(octaveNumber+48)+message.substring(15);
+                message = message.substring(0,15)+(char)(octaveNumber+48)+message.substring(16);
                 buttonPattern.setText(message);
             }
         });
@@ -153,7 +153,7 @@ public class SettingsScreen extends AppCompatActivity implements AdapterView.OnI
                 if(octaveNumber<6) {
                     octaveNumber++;
                 }
-                message = message.substring(0,14)+(char)(octaveNumber+48)+message.substring(15);
+                message = message.substring(0,15)+(char)(octaveNumber+48)+message.substring(16);
                 buttonPattern.setText(message);
             }
         });
@@ -168,7 +168,7 @@ public class SettingsScreen extends AppCompatActivity implements AdapterView.OnI
                 if(arpegiatorEnabled) {
                     arpegiatorEnabled = !arpegiatorEnabled;
                     buttonArpegiator.setText("Disabled");
-                    message = message.substring(0,16)+'D'+message.substring(17);
+                    message = message.substring(0,17)+'D'+message.substring(18);
                     buttonSequential.setEnabled(false);
                     buttonContinuous.setEnabled(false);
                     buttonSequential.setVisibility(View.INVISIBLE);
@@ -176,7 +176,7 @@ public class SettingsScreen extends AppCompatActivity implements AdapterView.OnI
                 } else {
                     arpegiatorEnabled = !arpegiatorEnabled;
                     buttonArpegiator.setText("Enabled");
-                    message = message.substring(0,16)+'E'+message.substring(17);
+                    message = message.substring(0,17)+'E'+message.substring(18);
                     buttonSequential.setEnabled(true);
                     buttonContinuous.setEnabled(true);
                     buttonSequential.setVisibility(View.VISIBLE);
@@ -194,11 +194,11 @@ public class SettingsScreen extends AppCompatActivity implements AdapterView.OnI
                 if(sequentialRandom) {
                     sequentialRandom = !sequentialRandom;
                     buttonSequential.setText("Sequential");
-                    message = message.substring(0,17)+'S'+message.substring(18);
+                    message = message.substring(0,18)+'S'+message.substring(19);
                 } else {
                     sequentialRandom = !sequentialRandom;
                     buttonSequential.setText("Auto");
-                    message = message.substring(0,17)+'R'+message.substring(18);
+                    message = message.substring(0,18)+'R'+message.substring(19);
                 }
                 buttonPattern.setText(message);
             }
@@ -212,11 +212,11 @@ public class SettingsScreen extends AppCompatActivity implements AdapterView.OnI
                 if(singleContinuous) {
                     singleContinuous = !singleContinuous;
                     buttonContinuous.setText("Continuous");
-                    message = message.substring(0,18)+'C'+message.substring(19);
+                    message = message.substring(0,19)+'C'+message.substring(20);
                 } else {
                     singleContinuous = !singleContinuous;
                     buttonContinuous.setText("Standard");
-                    message = message.substring(0,18)+'S'+message.substring(19);
+                    message = message.substring(0,19)+'S'+message.substring(20);
                 }
                 buttonPattern.setText(message);
             }
@@ -230,11 +230,11 @@ public class SettingsScreen extends AppCompatActivity implements AdapterView.OnI
                 if(lockedKey) {
                     lockedKey = !lockedKey;
                     buttonLock.setText("Free key");
-                    message = message.substring(0,19)+'F'+message.substring(20);
+                    message = message.substring(0,20)+'F'+message.substring(21);
                 } else {
                     lockedKey = !lockedKey;
                     buttonLock.setText("Lock to key");
-                    message = message.substring(0,19)+'L'+message.substring(20);
+                    message = message.substring(0,20)+'L'+message.substring(21);
                 }
                 buttonPattern.setText(message);
             }
@@ -247,11 +247,11 @@ public class SettingsScreen extends AppCompatActivity implements AdapterView.OnI
                 if(lockedTime) {
                     lockedTime = !lockedTime;
                     buttonLockTime.setText("Free time");
-                    message = message.substring(0,20)+'L'+message.substring(21);
+                    message = message.substring(0,21)+'L'+message.substring(22);
                 } else {
                     lockedTime = !lockedTime;
                     buttonLockTime.setText("Lock to time");
-                    message = message.substring(0,20)+'F'+message.substring(21);
+                    message = message.substring(0,21)+'F'+message.substring(22);
                 }
                 buttonPattern.setText(message);
             }
@@ -307,7 +307,7 @@ public class SettingsScreen extends AppCompatActivity implements AdapterView.OnI
     boolean check6 = false;
     boolean check7 = false;
     boolean theChecker = true;
-    int index = 0;
+    int index = 1;
     int total = 0;
 
     public void onCheckboxClicked(View view) {
@@ -339,7 +339,7 @@ public class SettingsScreen extends AppCompatActivity implements AdapterView.OnI
                 break;
         }
 
-        message = message.substring(0,24)+'0'+'0'+'0'+'0'+'0'+'0'+'0'+'0';
+        message = message.substring(0,24)+'0'+'0'+'0'+'0'+'0'+'0'+'0';
 
         if(check1) {
             message = message.substring(0,24+index)+'0'+message.substring(25+index);

@@ -92,7 +92,7 @@ public class BLEController {
     };
 
     private boolean isThisTheDevice(BluetoothDevice device) {
-        return null != device.getName() && device.getName().startsWith("BlueCArd");
+        return null != device.getName() && device.getName().startsWith("DSD");
     }
 
     private void deviceFound(BluetoothDevice device) {

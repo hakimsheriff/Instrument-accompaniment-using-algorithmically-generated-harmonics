@@ -29,6 +29,10 @@ public class RemoteControl {
         this.bleController.sendData(createControlWord(LED_COMMAND, on?VALUE_ON:VALUE_OFF));
     }
 
+    public void sendWord(String settings) {
+        this.bleController.sendData(settings.getBytes());
+    }
+
     public void heartbeat() {
         this.bleController.sendData(createControlWord(HEARTBEAT));
     }
