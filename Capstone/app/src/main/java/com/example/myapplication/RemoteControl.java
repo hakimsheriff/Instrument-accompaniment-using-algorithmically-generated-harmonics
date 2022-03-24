@@ -45,6 +45,87 @@ public class RemoteControl {
         this.bleController.sendData(b);
     }
 
+    public void alternate(String settings) {
+        char c;
+        byte b[] = new byte[32];
+        for(int j = 0; j < 32; j++) {
+            c = settings.charAt(i);
+            if(c == '0') {
+                b[j] = 48;
+            } else if(c == '1') {
+                b[j] = 49;
+            } else if(c == '2') {
+                b[j] = 50;
+            } else if(c == '3') {
+                b[j] = 51;
+            } else if(c == '4') {
+                b[j] = 52;
+            } else if(c == '5') {
+                b[j] = 53;
+            } else if(c == '6') {
+                b[j] = 54;
+            } else if(c == '7') {
+                b[j] = 55;
+            } else if(c == '8') {
+                b[j] = 56;
+            } else if(c == '9') {
+                b[j] = 57;
+            } else if(c == 'A') {
+                b[j] = 65;
+            } else if(c == 'B') {
+                b[j] = 66;
+            } else if(c == 'C') {
+                b[j] = 67;
+            } else if(c == 'D') {
+                b[j] = 68;
+            } else if(c == 'E') {
+                b[j] = 69;
+            } else if(c == 'F') {
+                b[j] = 70;
+            } else if(c == 'G') {
+                b[j] = 71;
+            } else if(c == 'H') {
+                b[j] = 72;
+            } else if(c == 'I') {
+                b[j] = 73;
+            } else if(c == 'J') {
+                b[j] = 74;
+            } else if(c == 'K') {
+                b[j] = 75;
+            } else if(c == 'L') {
+                b[j] = 76;
+            } else if(c == 'M') {
+                b[j] = 77;
+            } else if(c == 'N') {
+                b[j] = 78;
+            } else if(c == 'O') {
+                b[j] = 79;
+            } else if(c == 'P') {
+                b[j] = 80;
+            } else if(c == 'Q') {
+                b[j] = 81;
+            } else if(c == 'R') {
+                b[j] = 82;
+            } else if(c == 'S') {
+                b[j] = 83;
+            } else if(c == 'T') {
+                b[j] = 84;
+            } else if(c == 'U') {
+                b[j] = 85;
+            } else if(c == 'V') {
+                b[j] = 86;
+            } else if(c == 'W') {
+                b[j] = 87;
+            } else if(c == 'X') {
+                b[j] = 88;
+            } else if(c == 'Y') {
+                b[j] = 89;
+            } else if(c == 'Z') {
+                b[j] = 90;
+            }
+        }
+    }
+
     public void heartbeat() {
         this.bleController.sendData(createControlWord(HEARTBEAT));
     }
