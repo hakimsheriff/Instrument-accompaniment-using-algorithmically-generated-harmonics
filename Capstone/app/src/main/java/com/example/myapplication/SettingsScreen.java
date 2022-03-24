@@ -48,6 +48,9 @@ public class SettingsScreen extends AppCompatActivity implements BLEControllerLi
         Intent intent = getIntent();
         sendingWord = intent.getStringExtra(MainActivity.EXTRA_TEXT);
 
+        TextView testing = findViewById(R.id.textView6);
+        testing.setText("Word is : " + sendingWord);
+
         button = (Button) findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -247,6 +250,7 @@ public class SettingsScreen extends AppCompatActivity implements BLEControllerLi
     }
 
     public void openActivity2() {
+
         remoteControl.sendWord(sendingWord);
     }
 }
