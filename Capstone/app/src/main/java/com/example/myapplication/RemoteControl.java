@@ -30,26 +30,10 @@ public class RemoteControl {
     }
 
     public void sendWord(String settings) {
-        String tempSettings = settings.toUpperCase();
-        byte b[] = new byte[32];
-
-        String digits = "0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
-        int val = 0;
-        for (int i = 0; i < 32; i++) {
-            char c = tempSettings.charAt(i);
-            int d = digits.indexOf(c);
-            b[i] = (byte) (d + 48);
-        }
-
-        this.bleController.sendData(b);
-    }
-
-    public void alternate(String settings) {
         char c;
         byte b[] = new byte[32];
         for(int j = 0; j < 32; j++) {
-            c = settings.charAt(i);
+            c = settings.charAt(j);
             if(c == '0') {
                 b[j] = 48;
             } else if(c == '1') {
@@ -123,6 +107,22 @@ public class RemoteControl {
             } else if(c == 'Z') {
                 b[j] = 90;
             }
+        }
+
+        this.bleController.sendData(b);
+    }
+
+    public void alternate(String settings) {
+        String tempSettings = settings.toUpperCase();
+        byte b[] = new byte[32];
+
+        String digits = "0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+        int val = 0;
+        for (int i = 0; i < 32; i++) {
+            char c = tempSettings.charAt(i);
+            int d = digits.indexOf(c);
+            b[i] = (byte) (d + 48);
         }
     }
 
