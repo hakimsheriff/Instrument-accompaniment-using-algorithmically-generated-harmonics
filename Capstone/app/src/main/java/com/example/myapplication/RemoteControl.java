@@ -30,13 +30,16 @@ public class RemoteControl {
     }
 
     public void sendWord(String settings) {
-        char temp;
+        String tempSettings = settings.toUpperCase();
         byte b[] = new byte[32];
 
-        // Copy character by character into array
+        String digits = "0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+        int val = 0;
         for (int i = 0; i < 32; i++) {
-             temp = settings.charAt(i);
-             b[i] = (byte) temp;
+            char c = tempSettings.charAt(i);
+            int d = digits.indexOf(c);
+            b[i] = (byte) (d + 48);
         }
 
         this.bleController.sendData(b);
