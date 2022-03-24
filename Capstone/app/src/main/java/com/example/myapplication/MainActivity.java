@@ -41,7 +41,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     boolean lockedKey = true;
     boolean lockedTime = true;
     int octaveNumber = 1;
-    Button buttonPattern;
+    TextView buttonPattern;
+    TextView octave;
 
 
     @Override
@@ -52,14 +53,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         textBPM = findViewById(R.id.textBPM);
         textLength = findViewById(R.id.textLength);
 
-        buttonPattern = (Button) findViewById(R.id.button_show_pattern);
-        buttonPattern.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Log.i(TAG, "This is a magic log message!");
+        buttonPattern = findViewById(R.id.textDebug);
+        octave = findViewById(R.id.textOctave);
 
-            }
-        });
+        Button buttonLock = (Button) findViewById(R.id.buttonLock);
+        Button buttonLockTime = (Button) findViewById(R.id.buttonLockTime);
 
         seekbarBPM = (SeekBar)findViewById(R.id.seekBar);
         seekbarBPM.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -149,6 +147,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 //Log.i(TAG, "This is a magic log message!");
                 if(octaveNumber>1) {
                     octaveNumber--;
+                    octave.setText(octaveNumber);
                 }
                 message = message.substring(0,15)+(char)(octaveNumber+48)+message.substring(16);
                 buttonPattern.setText(message);
@@ -162,6 +161,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 //Log.i(TAG, "This is a magic log message!");
                 if(octaveNumber<7) {
                     octaveNumber++;
+                    octave.setText(octaveNumber);
                 }
                 message = message.substring(0,15)+(char)(octaveNumber+48)+message.substring(16);
                 buttonPattern.setText(message);
@@ -183,6 +183,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     buttonContinuous.setEnabled(false);
                     buttonSequential.setVisibility(View.INVISIBLE);
                     buttonContinuous.setVisibility(View.INVISIBLE);
+                    buttonLock.setEnabled(false);
+                    buttonLockTime.setEnabled(false);
+                    buttonLock.setVisibility(View.INVISIBLE);
+                    buttonLockTime.setVisibility(View.INVISIBLE);
+
                 } else {
                     arpegiatorEnabled = !arpegiatorEnabled;
                     buttonArpegiator.setText("Enabled");
@@ -191,6 +196,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     buttonContinuous.setEnabled(true);
                     buttonSequential.setVisibility(View.VISIBLE);
                     buttonContinuous.setVisibility(View.VISIBLE);
+                    buttonLock.setEnabled(true);
+                    buttonLockTime.setEnabled(true);
+                    buttonLock.setVisibility(View.VISIBLE);
+                    buttonLockTime.setVisibility(View.VISIBLE);
                 }
                 buttonPattern.setText(message);
             }
@@ -232,7 +241,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             }
         });
 
-        Button buttonLock = (Button) findViewById(R.id.buttonLock);
+
         buttonLock.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -250,7 +259,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             }
         });
 
-        Button buttonLockTime = (Button) findViewById(R.id.buttonLockTime);
+
         buttonLockTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -273,8 +282,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             public void onClick(View v) {
                 //Log.i(TAG, "This is a magic log message!");
                 openActivity2();
-                Toast.makeText(getApplicationContext(), "It's magic!", Toast.LENGTH_SHORT)
-                        .show();
             }
         });
 
@@ -482,7 +489,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
 
         Intent intent = new Intent(this, SettingsScreen.class);
-        //intent.putExtra(EXTRA_TEXT, bluetoothWord);
+        intent.putExtra(EXTRA_TEXT, bluetoothWord);
         startActivity(intent);
     }
 }

@@ -49,7 +49,15 @@ public class SettingsScreen extends AppCompatActivity implements BLEControllerLi
         sendingWord = intent.getStringExtra(MainActivity.EXTRA_TEXT);
 
         TextView testing = findViewById(R.id.textView6);
-        testing.setText("Word is : " + sendingWord);
+        testing.setText("Debug : " + sendingWord);
+
+        Button stopButton = (Button) findViewById(R.id.button10);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendStop();
+            }
+        });
 
         button = (Button) findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
@@ -133,7 +141,7 @@ public class SettingsScreen extends AppCompatActivity implements BLEControllerLi
     }
 
     private void initSwitchLEDButton() {
-        this.switchLEDButton = findViewById(R.id.switchButton);
+        //this.switchLEDButton = findViewById(R.id.switchButton);
         this.switchLEDButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -202,7 +210,7 @@ public class SettingsScreen extends AppCompatActivity implements BLEControllerLi
         this.bleController.addBLEControllerListener(this);
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                 == PackageManager.PERMISSION_GRANTED) {
-            log("[BLE]\tSearching for BlueCArd...");
+            log("[BLE]\tSearching for Bluetooth device...");
             this.bleController.init();
         }
     }
@@ -252,5 +260,10 @@ public class SettingsScreen extends AppCompatActivity implements BLEControllerLi
     public void openActivity2() {
 
         remoteControl.sendWord(sendingWord);
+    }
+
+    public void sendStop() {
+        String stopMessage = "E0000000000000000000000000000000";
+        remoteControl.sendWord(stopMessage);
     }
 }
