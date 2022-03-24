@@ -31,8 +31,8 @@ public class RemoteControl {
 
     public void sendWord(String settings) {
         char c;
-        byte b[] = new byte[32];
-        for(int j = 0; j < 32; j++) {
+        byte b[] = new byte[settings.length()];
+        for(int j = 0; j < settings.length(); j++) {
             c = settings.charAt(j);
             if(c == '0') {
                 b[j] = 48;
