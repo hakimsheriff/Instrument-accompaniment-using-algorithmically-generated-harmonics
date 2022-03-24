@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     SeekBar seekbarLength;
     TextView textBPM;
     TextView textLength;
-    String message = "SGB000G000KA00O0A00000S00000000";
+    String message = "SGB000G000KM09O1AERSLLS00000000";
     boolean keyManualAuto = true;
     boolean arpegiatorEnabled = true;
     boolean sequentialRandom = true;
@@ -147,7 +147,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 //Log.i(TAG, "This is a magic log message!");
                 if(octaveNumber>1) {
                     octaveNumber--;
-                    octave.setText(octaveNumber);
+                    String tempOctave = Integer.toString(octaveNumber);
+                    octave.setText("Octave : " + tempOctave);
                 }
                 message = message.substring(0,15)+(char)(octaveNumber+48)+message.substring(16);
                 buttonPattern.setText(message);
@@ -161,7 +162,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 //Log.i(TAG, "This is a magic log message!");
                 if(octaveNumber<7) {
                     octaveNumber++;
-                    octave.setText(octaveNumber);
+                    String tempOctave = Integer.toString(octaveNumber);
+                    octave.setText("Octave : " + tempOctave);
                 }
                 message = message.substring(0,15)+(char)(octaveNumber+48)+message.substring(16);
                 buttonPattern.setText(message);
@@ -249,11 +251,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 if(lockedKey) {
                     lockedKey = !lockedKey;
                     buttonLock.setText("Free key");
-                    message = message.substring(0,20)+'F'+message.substring(21);
+                    message = message.substring(0,20)+'L'+message.substring(21);
                 } else {
                     lockedKey = !lockedKey;
                     buttonLock.setText("Lock to key");
-                    message = message.substring(0,20)+'L'+message.substring(21);
+                    message = message.substring(0,20)+'F'+message.substring(21);
                 }
                 buttonPattern.setText(message);
             }

@@ -28,7 +28,7 @@ public class SettingsScreen extends AppCompatActivity implements BLEControllerLi
     private TextView logView;
     private Button connectButton;
     private Button disconnectButton;
-    private Button switchLEDButton;
+    private Button stopButton;
 
     private BLEController bleController;
     private RemoteControl remoteControl;
@@ -39,6 +39,7 @@ public class SettingsScreen extends AppCompatActivity implements BLEControllerLi
     private boolean isAlive = false;
     private Thread heartBeatThread = null;
     String sendingWord;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,8 +52,8 @@ public class SettingsScreen extends AppCompatActivity implements BLEControllerLi
         TextView testing = findViewById(R.id.textView6);
         testing.setText("Debug : " + sendingWord);
 
-        Button stopButton = (Button) findViewById(R.id.button10);
-        button.setOnClickListener(new View.OnClickListener() {
+        stopButton = (Button) findViewById(R.id.button10);
+        stopButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 sendStop();
@@ -75,7 +76,6 @@ public class SettingsScreen extends AppCompatActivity implements BLEControllerLi
 
         initConnectButton();
         initDisconnectButton();
-        initSwitchLEDButton();
 
         checkBLESupport();
         checkPermissions();
@@ -140,25 +140,12 @@ public class SettingsScreen extends AppCompatActivity implements BLEControllerLi
         });
     }
 
-    private void initSwitchLEDButton() {
-        //this.switchLEDButton = findViewById(R.id.switchButton);
-        this.switchLEDButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                isLEDOn = !isLEDOn;
-                remoteControl.switchLED(isLEDOn);
-                log("LED switched " + (isLEDOn?"On":"Off"));
-            }
-        });
-    }
-
     private void disableButtons() {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 connectButton.setEnabled(false);
                 disconnectButton.setEnabled(false);
-                switchLEDButton.setEnabled(false);
             }
         });
     }
@@ -230,7 +217,6 @@ public class SettingsScreen extends AppCompatActivity implements BLEControllerLi
             @Override
             public void run() {
                 disconnectButton.setEnabled(true);
-                switchLEDButton.setEnabled(true);
             }
         });
         startHeartBeat();

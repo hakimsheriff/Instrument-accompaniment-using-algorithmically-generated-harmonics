@@ -122,10 +122,10 @@
         android:id="@+id/button_octave_up"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="84dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:text="Octave up"
-        app:layout_constraintStart_toEndOf="@+id/button_octave_down"
+        app:layout_constraintStart_toEndOf="@+id/textOctave"
         app:layout_constraintTop_toBottomOf="@+id/keyManual" />
 
     <Spinner
@@ -242,9 +242,9 @@
         android:id="@+id/textOctave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="28dp"
-        android:text="TextView"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="24dp"
+        android:text="Octave"
         app:layout_constraintStart_toEndOf="@+id/button_octave_down"
         app:layout_constraintTop_toBottomOf="@+id/spinnerMajorMinor" />
 
