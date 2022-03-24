@@ -38,8 +38,8 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="318dp"
-        android:layout_height="55dp"
+        android:layout_width="381dp"
+        android:layout_height="47dp"
         android:layout_marginStart="12dp"
         android:layout_marginTop="60dp"
         android:orientation="horizontal"
@@ -51,48 +51,49 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onCheckboxClicked"
-            android:text="A" />
+            android:text="1st" />
 
         <CheckBox
             android:id="@+id/checkbox_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onCheckboxClicked"
-            android:text="A#" />
+            android:text="2nd" />
 
         <CheckBox
             android:id="@+id/checkbox_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onCheckboxClicked"
-            android:text="B" />
+            android:text="3d" />
 
         <CheckBox
             android:id="@+id/checkbox_4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onCheckboxClicked"
-            android:text="C" />
+            android:text="4th" />
 
         <CheckBox
             android:id="@+id/checkbox_5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onCheckboxClicked"
-            android:text="C#" />
+            android:text="5th" />
 
         <CheckBox
             android:id="@+id/checkbox_6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onCheckboxClicked"
-            android:text="D" />
+            android:text="6th" />
+
         <CheckBox
             android:id="@+id/checkbox_7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onCheckboxClicked"
-            android:text="E" />
+            android:text="7th" />
 
     </LinearLayout>
 

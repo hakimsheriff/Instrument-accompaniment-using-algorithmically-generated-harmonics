@@ -30,42 +30,14 @@ public class RemoteControl {
     }
 
     public void sendWord(String settings) {
-        byte b[];
-        //MEMORY ALLOCATION FOR JAVA BYTE ARRAY
-        b = new byte[32];
-        //ASSIGNING ELEMENTS TO JAVA BYTE ARRAY
-        b[0] = 65;
-        b[1] = 0;
-        b[2] = 0;
-        b[3] = 0;
-        b[4] = 0;
-        b[5] = 0;
-        b[6] = 0;
-        b[7] = 0;
-        b[8] = 0;
-        b[9] = 0;
-        b[10] = 0;
-        b[11] = 0;
-        b[12] = 0;
-        b[13] = 0;
-        b[14] = 0;
-        b[15] = 0;
-        b[16] = 0;
-        b[17] = 0;
-        b[18] = 0;
-        b[19] = 0;
-        b[20] = 0;
-        b[21] = 0;
-        b[22] = 0;
-        b[23] = 0;
-        b[24] = 0;
-        b[25] = 0;
-        b[26] = 0;
-        b[27] = 0;
-        b[28] = 0;
-        b[29] = 0;
-        b[30] = 0;
-        b[31] = 0;
+        char temp;
+        byte b[] = new byte[32];
+
+        // Copy character by character into array
+        for (int i = 0; i < 32; i++) {
+             temp = settings.charAt(i);
+             b[i] = (byte) temp;
+        }
 
         this.bleController.sendData(b);
     }
