@@ -30,7 +30,15 @@ public class RemoteControl {
     }
 
     public void sendWord(String settings) {
-        this.bleController.sendData(settings.getBytes());
+        byte b[];
+        //MEMORY ALLOCATION FOR JAVA BYTE ARRAY
+        b = new byte[4];
+        //ASSIGNING ELEMENTS TO JAVA BYTE ARRAY
+        b[0] = 20;
+        b[1] = 10;
+        b[2] = 30;
+        b[3] = 5;
+        this.bleController.sendData(b);
     }
 
     public void heartbeat() {

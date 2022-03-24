@@ -38,6 +38,7 @@ public class SettingsScreen extends AppCompatActivity implements BLEControllerLi
 
     private boolean isAlive = false;
     private Thread heartBeatThread = null;
+    String sendingWord;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +46,7 @@ public class SettingsScreen extends AppCompatActivity implements BLEControllerLi
         setContentView(R.layout.activity_settings_screen);
 
         Intent intent = getIntent();
-        String sendingWord = intent.getStringExtra(MainActivity.EXTRA_TEXT);
+        sendingWord = intent.getStringExtra(MainActivity.EXTRA_TEXT);
 
         button = (Button) findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
@@ -70,7 +71,7 @@ public class SettingsScreen extends AppCompatActivity implements BLEControllerLi
 
         disableButtons();
 
-        justSendString(sendingWord);
+
     }
 
     public void startHeartBeat() {
@@ -138,10 +139,6 @@ public class SettingsScreen extends AppCompatActivity implements BLEControllerLi
                 log("LED switched " + (isLEDOn?"On":"Off"));
             }
         });
-    }
-
-    private void justSendString(String word) {
-        remoteControl.sendWord(word);
     }
 
     private void disableButtons() {
@@ -250,6 +247,6 @@ public class SettingsScreen extends AppCompatActivity implements BLEControllerLi
     }
 
     public void openActivity2() {
-
+        remoteControl.sendWord(sendingWord);
     }
 }

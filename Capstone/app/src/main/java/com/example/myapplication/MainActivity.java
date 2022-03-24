@@ -24,7 +24,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-    public static final String EXTRA_TEXT = "com.example.myapplication.example.EXTRA_TEXT";
+    public static final String EXTRA_TEXT = "com.example.myapplication.EXTRA_TEXT";
 
     private static final String TAG = "DemoInitialApp";
     Spinner keySpinner;
@@ -147,7 +147,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             @Override
             public void onClick(View v) {
                 //Log.i(TAG, "This is a magic log message!");
-                if(octaveNumber>0) {
+                if(octaveNumber>1) {
                     octaveNumber--;
                 }
                 message = message.substring(0,15)+(char)(octaveNumber+48)+message.substring(16);
@@ -160,7 +160,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             @Override
             public void onClick(View v) {
                 //Log.i(TAG, "This is a magic log message!");
-                if(octaveNumber<6) {
+                if(octaveNumber<7) {
                     octaveNumber++;
                 }
                 message = message.substring(0,15)+(char)(octaveNumber+48)+message.substring(16);
@@ -272,7 +272,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             @Override
             public void onClick(View v) {
                 //Log.i(TAG, "This is a magic log message!");
-
+                openActivity2();
                 Toast.makeText(getApplicationContext(), "It's magic!", Toast.LENGTH_SHORT)
                         .show();
             }
@@ -482,7 +482,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
 
         Intent intent = new Intent(this, SettingsScreen.class);
-        intent.putExtra(EXTRA_TEXT, bluetoothWord);
+        //intent.putExtra(EXTRA_TEXT, bluetoothWord);
         startActivity(intent);
     }
 }
