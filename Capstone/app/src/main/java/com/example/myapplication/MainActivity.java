@@ -281,6 +281,17 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             }
         });
 
+        Button buttonDebug = (Button) findViewById(R.id.buttonDebug);
+        buttonDebug.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Log.i(TAG, "This is a magic log message!");
+                buttonDebug.setEnabled(false);
+                buttonDebug.setVisibility(View.INVISIBLE);
+                buttonPattern.setEnabled(false);
+                buttonPattern.setVisibility(View.INVISIBLE);
+            }
+        });
 
 
     }

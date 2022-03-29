@@ -7,63 +7,45 @@
     android:layout_height="match_parent"
     tools:context=".SettingsScreen">
 
-    <Spinner
-        android:id="@+id/spinnerMajorMinor"
-        android:layout_width="109dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="136dp"
-        android:layout_marginTop="28dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="44dp"
-        android:text="Key :"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <SeekBar
         android:id="@+id/seekBar"
         android:layout_width="261dp"
         android:layout_height="30dp"
-        android:layout_marginStart="84dp"
+        android:layout_marginStart="80dp"
         android:layout_marginTop="12dp"
         android:max="220"
         android:min="0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_octave_up" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerMajorMinor" />
 
     <Button
         android:id="@+id/button_octave_down"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="-"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textOctave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="Octave down"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/keyManual" />
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="28dp"
+        android:text="Octave"
+        app:layout_constraintStart_toEndOf="@+id/button_octave_down"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button_octave_up"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="Octave up"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="+"
         app:layout_constraintStart_toEndOf="@+id/textOctave"
-        app:layout_constraintTop_toBottomOf="@+id/keyManual" />
-
-    <Spinner
-        android:id="@+id/spinnerKeys"
-        android:layout_width="104dp"
-        android:layout_height="38dp"
-        android:layout_marginStart="256dp"
-        android:layout_marginTop="28dp"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
@@ -71,20 +53,48 @@
         android:layout_width="75dp"
         android:layout_height="39dp"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="20dp"
         android:text="Manual"
         app:layout_constraintStart_toEndOf="@+id/textView3"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textOctave" />
+
+    <Spinner
+        android:id="@+id/spinnerKeys"
+        android:layout_width="104dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="248dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonStart" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="16dp"
+        android:text="Key :"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_octave_down" />
+
+    <Spinner
+        android:id="@+id/spinnerMajorMinor"
+        android:layout_width="109dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_octave_up" />
 
     <TextView
         android:id="@+id/textBPM"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="24dp"
         android:text="BPM : "
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_octave_down" />
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <Button
         android:id="@+id/buttonArpegiator"
@@ -121,8 +131,8 @@
         android:id="@+id/textDebug"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="236dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="252dp"
         android:text="TextView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonArpegiator" />
@@ -131,18 +141,18 @@
         android:id="@+id/buttonStart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="188dp"
+        android:layout_marginStart="260dp"
+        android:layout_marginTop="8dp"
         android:text="Start"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonArpegiator" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="381dp"
         android:layout_height="47dp"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonLockTime">
@@ -152,61 +162,51 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onCheckboxClicked"
-            android:text="1st" />
+            android:text="1" />
 
         <CheckBox
             android:id="@+id/checkbox_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onCheckboxClicked"
-            android:text="2nd" />
+            android:text="2" />
 
         <CheckBox
             android:id="@+id/checkbox_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onCheckboxClicked"
-            android:text="3d" />
+            android:text="3" />
 
         <CheckBox
             android:id="@+id/checkbox_4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onCheckboxClicked"
-            android:text="4th" />
+            android:text="4" />
 
         <CheckBox
             android:id="@+id/checkbox_5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onCheckboxClicked"
-            android:text="5th" />
+            android:text="5" />
 
         <CheckBox
             android:id="@+id/checkbox_6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onCheckboxClicked"
-            android:text="6th" />
+            android:text="6" />
 
         <CheckBox
             android:id="@+id/checkbox_7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onCheckboxClicked"
-            android:text="7th" />
+            android:text="7" />
 
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/textOctave"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="24dp"
-        android:text="Octave"
-        app:layout_constraintStart_toEndOf="@+id/button_octave_down"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerMajorMinor" />
 
     <TextView
         android:id="@+id/textView4"
@@ -257,5 +257,55 @@
         android:text="Locked to Time"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonLockKey" />
+
+    <Button
+        android:id="@+id/buttonTuningModes"
+        android:layout_width="96dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:text="Tuning Modes"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <Button
+        android:id="@+id/buttonPlayC1"
+        android:layout_width="76dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:text="Play C1"
+        app:layout_constraintStart_toEndOf="@+id/buttonTuningModes"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <Button
+        android:id="@+id/buttonPlayA4"
+        android:layout_width="76dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:text="Play A4"
+        app:layout_constraintStart_toEndOf="@+id/buttonPlayC1"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <Button
+        android:id="@+id/buttonPlayC6"
+        android:layout_width="76dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:text="Play C6"
+        app:layout_constraintStart_toEndOf="@+id/buttonPlayA4"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <Button
+        android:id="@+id/buttonDebug"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:text="Debug"
+        app:layout_constraintStart_toEndOf="@+id/buttonArpegiator"
+        app:layout_constraintTop_toBottomOf="@+id/seekBar2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
