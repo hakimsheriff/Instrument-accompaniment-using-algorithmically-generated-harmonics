@@ -16,10 +16,13 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     SeekBar seekbarLength;
     TextView textBPM;
     TextView textLength;
-    String message = "SGB000G000KM09O1AERSLLS00000000";
+    String message = "SGB000G000KM09O1AERSFFS00000000";
     boolean keyManualAuto = true;
     boolean arpegiatorEnabled = true;
     boolean sequentialRandom = true;
@@ -56,8 +59,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         buttonPattern = findViewById(R.id.textDebug);
         octave = findViewById(R.id.textOctave);
 
-        Button buttonLock = (Button) findViewById(R.id.buttonLock);
-        Button buttonLockTime = (Button) findViewById(R.id.buttonLockTime);
 
         seekbarBPM = (SeekBar)findViewById(R.id.seekBar);
         seekbarBPM.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -171,8 +172,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         });
 
         Button buttonArpegiator = (Button) findViewById(R.id.buttonArpegiator);
-        Button buttonSequential = (Button) findViewById(R.id.buttonSequential);
-        Button buttonContinuous = (Button) findViewById(R.id.buttonContinuous);
+        Switch sequential = (Switch) findViewById(R.id.buttonSequential);
+        Switch continuous = (Switch) findViewById(R.id.buttonContinuous);
+        Switch lockKey = (Switch) findViewById(R.id.buttonLockKey);
+        Switch lockTime = (Switch) findViewById(R.id.buttonLockTime);
+        LinearLayout checkboxes = (LinearLayout) findViewById(R.id.linearLayout);
+
         buttonArpegiator.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -181,97 +186,86 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     arpegiatorEnabled = !arpegiatorEnabled;
                     buttonArpegiator.setText("Disabled");
                     message = message.substring(0,17)+'D'+message.substring(18);
-                    buttonSequential.setEnabled(false);
-                    buttonContinuous.setEnabled(false);
-                    buttonSequential.setVisibility(View.INVISIBLE);
-                    buttonContinuous.setVisibility(View.INVISIBLE);
-                    buttonLock.setEnabled(false);
-                    buttonLockTime.setEnabled(false);
-                    buttonLock.setVisibility(View.INVISIBLE);
-                    buttonLockTime.setVisibility(View.INVISIBLE);
-
+                    sequential.setEnabled(false);
+                    continuous.setEnabled(false);
+                    sequential.setVisibility(View.INVISIBLE);
+                    continuous.setVisibility(View.INVISIBLE);
+                    lockKey.setEnabled(false);
+                    lockTime.setEnabled(false);
+                    lockKey.setVisibility(View.INVISIBLE);
+                    lockTime.setVisibility(View.INVISIBLE);
+                    checkboxes.setEnabled(false);
+                    checkboxes.setVisibility(View.INVISIBLE);
                 } else {
                     arpegiatorEnabled = !arpegiatorEnabled;
                     buttonArpegiator.setText("Enabled");
                     message = message.substring(0,17)+'E'+message.substring(18);
-                    buttonSequential.setEnabled(true);
-                    buttonContinuous.setEnabled(true);
-                    buttonSequential.setVisibility(View.VISIBLE);
-                    buttonContinuous.setVisibility(View.VISIBLE);
-                    buttonLock.setEnabled(true);
-                    buttonLockTime.setEnabled(true);
-                    buttonLock.setVisibility(View.VISIBLE);
-                    buttonLockTime.setVisibility(View.VISIBLE);
+                    sequential.setEnabled(true);
+                    continuous.setEnabled(true);
+                    sequential.setVisibility(View.VISIBLE);
+                    continuous.setVisibility(View.VISIBLE);
+                    lockKey.setEnabled(true);
+                    lockTime.setEnabled(true);
+                    lockKey.setVisibility(View.VISIBLE);
+                    lockTime.setVisibility(View.VISIBLE);
+                    checkboxes.setEnabled(true);
+                    checkboxes.setVisibility(View.VISIBLE);
                 }
                 buttonPattern.setText(message);
             }
         });
 
 
-        buttonSequential.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Log.i(TAG, "This is a magic log message!");
-                if(sequentialRandom) {
-                    sequentialRandom = !sequentialRandom;
-                    buttonSequential.setText("Sequential");
+        sequential.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                // do something, the isChecked will be
+                // true if the switch is in the On position
+
+                if(isChecked) {
                     message = message.substring(0,18)+'S'+message.substring(19);
                 } else {
-                    sequentialRandom = !sequentialRandom;
-                    buttonSequential.setText("Auto");
                     message = message.substring(0,18)+'R'+message.substring(19);
                 }
                 buttonPattern.setText(message);
             }
         });
 
+        continuous.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                // do something, the isChecked will be
+                // true if the switch is in the On position
 
-        buttonContinuous.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Log.i(TAG, "This is a magic log message!");
-                if(singleContinuous) {
-                    singleContinuous = !singleContinuous;
-                    buttonContinuous.setText("Continuous");
+                if(isChecked) {
                     message = message.substring(0,19)+'C'+message.substring(20);
                 } else {
-                    singleContinuous = !singleContinuous;
-                    buttonContinuous.setText("Standard");
                     message = message.substring(0,19)+'S'+message.substring(20);
                 }
                 buttonPattern.setText(message);
             }
         });
 
+        lockKey.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                // do something, the isChecked will be
+                // true if the switch is in the On position
 
-        buttonLock.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Log.i(TAG, "This is a magic log message!");
-                if(lockedKey) {
-                    lockedKey = !lockedKey;
-                    buttonLock.setText("Free key");
+                if(isChecked) {
                     message = message.substring(0,20)+'L'+message.substring(21);
                 } else {
-                    lockedKey = !lockedKey;
-                    buttonLock.setText("Lock to key");
                     message = message.substring(0,20)+'F'+message.substring(21);
                 }
                 buttonPattern.setText(message);
             }
         });
 
+        lockTime.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                // do something, the isChecked will be
+                // true if the switch is in the On position
 
-        buttonLockTime.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(lockedTime) {
-                    lockedTime = !lockedTime;
-                    buttonLockTime.setText("Free time");
+                if(isChecked) {
                     message = message.substring(0,21)+'L'+message.substring(22);
                 } else {
-                    lockedTime = !lockedTime;
-                    buttonLockTime.setText("Lock to time");
                     message = message.substring(0,21)+'F'+message.substring(22);
                 }
                 buttonPattern.setText(message);
