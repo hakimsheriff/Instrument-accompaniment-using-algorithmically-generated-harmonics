@@ -50,8 +50,8 @@
 
     <Button
         android:id="@+id/keyManual"
-        android:layout_width="75dp"
-        android:layout_height="39dp"
+        android:layout_width="98dp"
+        android:layout_height="38dp"
         android:layout_marginStart="12dp"
         android:layout_marginTop="20dp"
         android:text="Manual"
@@ -62,7 +62,7 @@
         android:id="@+id/spinnerKeys"
         android:layout_width="104dp"
         android:layout_height="38dp"
-        android:layout_marginStart="248dp"
+        android:layout_marginStart="268dp"
         android:layout_marginTop="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonStart" />
@@ -81,7 +81,7 @@
         android:id="@+id/spinnerMajorMinor"
         android:layout_width="109dp"
         android:layout_height="36dp"
-        android:layout_marginStart="136dp"
+        android:layout_marginStart="156dp"
         android:layout_marginTop="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_octave_up" />
@@ -132,7 +132,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="252dp"
+        android:layout_marginTop="292dp"
         android:text="TextView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonArpegiator" />
@@ -300,12 +300,11 @@
 
     <Button
         android:id="@+id/buttonDebug"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="83dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="12dp"
         android:text="Debug"
-        app:layout_constraintStart_toEndOf="@+id/buttonArpegiator"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar2" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonTuningModes" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

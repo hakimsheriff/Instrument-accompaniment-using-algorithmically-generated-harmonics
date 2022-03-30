@@ -45,6 +45,7 @@ public class SettingsScreen extends AppCompatActivity implements BLEControllerLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings_screen);
+        getSupportActionBar().setTitle("guitARP Companion");
 
         Intent intent = getIntent();
         sendingWord = intent.getStringExtra(MainActivity.EXTRA_TEXT);

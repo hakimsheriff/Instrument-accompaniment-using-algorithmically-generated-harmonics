@@ -37,8 +37,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     TextView textBPM;
     TextView textLength;
     String message = "SGB000G000KM09O1AERSFFS00000000";
-    boolean keyManualAuto = true;
+    boolean keyManualAuto = false;
     boolean arpegiatorEnabled = true;
+    boolean tuningEnabled = true;
+    boolean debugEnabled = true;
     boolean sequentialRandom = true;
     boolean singleContinuous = true;
     boolean lockedKey = true;
@@ -52,6 +54,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().setTitle("guitARP Companion");
 
         textBPM = findViewById(R.id.textBPM);
         textLength = findViewById(R.id.textLength);
@@ -286,10 +289,43 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             @Override
             public void onClick(View v) {
                 //Log.i(TAG, "This is a magic log message!");
-                buttonDebug.setEnabled(false);
-                buttonDebug.setVisibility(View.INVISIBLE);
-                buttonPattern.setEnabled(false);
-                buttonPattern.setVisibility(View.INVISIBLE);
+                if(debugEnabled) {
+                    debugEnabled = !debugEnabled;
+                    buttonPattern.setEnabled(false);
+                    buttonPattern.setVisibility(View.INVISIBLE);
+                } else {
+                    debugEnabled = !debugEnabled;
+                    buttonPattern.setEnabled(true);
+                    buttonPattern.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+        Button buttonTuning = (Button) findViewById(R.id.buttonTuningModes);
+        Button buttonC1 = (Button) findViewById(R.id.buttonPlayC1);
+        Button buttonA4 = (Button) findViewById(R.id.buttonPlayA4);
+        Button buttonC6 = (Button) findViewById(R.id.buttonPlayC6);
+        buttonTuning.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Log.i(TAG, "This is a magic log message!");
+                if(tuningEnabled) {
+                    tuningEnabled = !tuningEnabled;
+                    buttonC1.setEnabled(false);
+                    buttonC1.setVisibility(View.INVISIBLE);
+                    buttonA4.setEnabled(false);
+                    buttonA4.setVisibility(View.INVISIBLE);
+                    buttonC6.setEnabled(false);
+                    buttonC6.setVisibility(View.INVISIBLE);
+                } else {
+                    tuningEnabled = !tuningEnabled;
+                    buttonC1.setEnabled(true);
+                    buttonC1.setVisibility(View.VISIBLE);
+                    buttonA4.setEnabled(true);
+                    buttonA4.setVisibility(View.VISIBLE);
+                    buttonC6.setEnabled(true);
+                    buttonC6.setVisibility(View.VISIBLE);
+                }
             }
         });
 
