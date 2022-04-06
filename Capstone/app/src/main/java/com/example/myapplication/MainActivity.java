@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity implements BLEControllerList
         this.disconnectButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                disconnectButton.setEnabled(false);
+                //disconnectButton.setEnabled(false);
                 log("Disconnecting...");
                 bleController.disconnect();
             }
@@ -141,7 +141,7 @@ public class MainActivity extends AppCompatActivity implements BLEControllerList
             @Override
             public void run() {
                 connectButton.setEnabled(false);
-                disconnectButton.setEnabled(false);
+                //disconnectButton.setEnabled(false);
             }
         });
     }

@@ -7,35 +7,14 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="23dp"
-        android:layout_marginTop="519dp"
-        android:text="E C E B B G F D E C E" />
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="315dp"
-        android:layout_height="97dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="23dp"
-        android:layout_marginTop="403dp"
-        android:text="List of notes"
-        android:textSize="30dp" />
-
     <Button
         android:id="@+id/connectButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="176dp"
-        android:layout_marginTop="22dp"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="205dp"
         android:text="Connect" />
 
     <Button
@@ -44,50 +23,19 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="176dp"
-        android:layout_marginTop="81dp"
+        android:layout_marginStart="137dp"
+        android:layout_marginTop="207dp"
         android:text="Disconnect" />
 
     <TextView
         android:id="@+id/logView"
-        android:layout_width="151dp"
-        android:layout_height="155dp"
+        android:layout_width="353dp"
+        android:layout_height="170dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="9dp"
         android:layout_marginTop="17dp"
         android:text="Log" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="237dp"
-        android:layout_height="70dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="260dp"
-        android:text="Current Key : C"
-        android:textSize="30dp" />
-
-    <Button
-        android:id="@+id/button10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="339dp"
-        android:text="Show last notes generated" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="23dp"
-        android:layout_marginTop="459dp"
-        android:text="Text for message" />
 
     <Button
         android:id="@+id/buttonGo"
@@ -95,8 +43,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="98dp"
-        android:layout_marginTop="186dp"
-        android:text="Go" />
+        android:layout_marginStart="268dp"
+        android:layout_marginTop="204dp"
+        android:text="Continue" />
 
 </RelativeLayout>

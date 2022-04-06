@@ -165,6 +165,11 @@ public class BLEController {
         bluetoothGatt.writeCharacteristic(this.btGattChar);
     }
 
+    public byte[] readData() {
+        bluetoothGatt.readCharacteristic(this.btGattChar);
+        return this.btGattChar.getValue();
+    }
+
     public boolean checkConnectedState() {
         return this.bluetoothManager.getConnectionState(this.device, GATT) == 2;
     }

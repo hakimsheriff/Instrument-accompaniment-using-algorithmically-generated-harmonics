@@ -29,7 +29,7 @@ public class RemoteControl {
         this.bleController.sendData(createControlWord(LED_COMMAND, on?VALUE_ON:VALUE_OFF));
     }
 
-    public void sendWord(String settings) {
+    public void alternate(String settings) {
         char c;
         byte b[] = new byte[settings.length()];
         for(int j = 0; j < settings.length(); j++) {
@@ -112,7 +112,12 @@ public class RemoteControl {
         this.bleController.sendData(b);
     }
 
-    public void alternate(String settings) {
+    public void receiveWord() {
+
+        //this.bleController.readData();
+    }
+
+    public void sendWord(String settings) {
         String tempSettings = settings.toUpperCase();
         byte b[] = new byte[32];
 
@@ -124,6 +129,8 @@ public class RemoteControl {
             int d = digits.indexOf(c);
             b[i] = (byte) (d + 48);
         }
+
+        this.bleController.sendData(b);
     }
 
     public void heartbeat() {
