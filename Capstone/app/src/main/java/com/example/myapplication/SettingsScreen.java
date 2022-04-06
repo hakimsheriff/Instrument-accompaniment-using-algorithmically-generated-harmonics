@@ -439,7 +439,7 @@ public class SettingsScreen extends AppCompatActivity implements AdapterView.OnI
                 break;
         }
 
-        message = message.substring(0,24)+'0'+'0'+'0'+'0'+'0'+'0'+'0';
+        message = message.substring(0,24)+'0'+'0'+'0'+'0'+'0'+'0'+'0' + message.substring(30);
 
         if(check1) {
             message = message.substring(0,24+index)+'0'+message.substring(25+index);
