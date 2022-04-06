@@ -116,12 +116,13 @@ public class RemoteControl {
 
         byte b[] = this.bleController.readData();
 
-        int val = b[0];
-        val -= 48;
-        if((val >= 0) && (val <= 9)) {
-            return val;
+        int val = 0;
+        int multiple = 1;
+        for(int x = 0; x < b.length; x++) {
+            val += (b[x] - 48)*multiple;
+            multiple *= 10;
         }
-        return -1;
+        return val;
 
 
         //harmony generated;

@@ -167,7 +167,7 @@ public class BLEController {
 
     public byte[] readData() {
         bluetoothGatt.readCharacteristic(this.btGattChar);
-        byte[] receivedBytes = {90};
+        byte[] receivedBytes = {47};
         if(this.btGattChar.getValue() != null) {
             return this.btGattChar.getValue();
         } else {
