@@ -336,7 +336,6 @@ public class SettingsScreen extends AppCompatActivity implements AdapterView.OnI
                     buttonA4.setVisibility(View.INVISIBLE);
                     buttonC6.setEnabled(false);
                     buttonC6.setVisibility(View.INVISIBLE);
-                    message = message.substring(0,31)+'F'+message.substring(32);
                 } else {
                     tuningEnabled = !tuningEnabled;
                     buttonC1.setEnabled(true);
@@ -345,7 +344,6 @@ public class SettingsScreen extends AppCompatActivity implements AdapterView.OnI
                     buttonA4.setVisibility(View.VISIBLE);
                     buttonC6.setEnabled(true);
                     buttonC6.setVisibility(View.VISIBLE);
-                    message = message.substring(0,31)+'T'+message.substring(32);
                 }
                 buttonPattern.setText(message);
             }
@@ -355,8 +353,6 @@ public class SettingsScreen extends AppCompatActivity implements AdapterView.OnI
             public void onClick(View v) {
                 String tune = "X000000000000000000000000000000T0";
                 remoteControl.sendWord(tune);
-                message = message.substring(0,31)+'T'+'0';
-                buttonPattern.setText(message);
             }
         });
         buttonA4.setOnClickListener(new View.OnClickListener() {
@@ -364,8 +360,6 @@ public class SettingsScreen extends AppCompatActivity implements AdapterView.OnI
             public void onClick(View v) {
                 String tune = "X000000000000000000000000000000T1";
                 remoteControl.sendWord(tune);
-                message = message.substring(0,31)+'T'+'1';
-                buttonPattern.setText(message);
             }
         });
         buttonC6.setOnClickListener(new View.OnClickListener() {
@@ -373,8 +367,6 @@ public class SettingsScreen extends AppCompatActivity implements AdapterView.OnI
             public void onClick(View v) {
                 String tune = "X000000000000000000000000000000T2";
                 remoteControl.sendWord(tune);
-                message = message.substring(0,31)+'T'+'2';
-                buttonPattern.setText(message);
             }
         });
 
