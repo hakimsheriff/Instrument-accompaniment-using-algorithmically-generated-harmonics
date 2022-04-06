@@ -49,7 +49,6 @@ public class SettingsScreen extends AppCompatActivity implements AdapterView.OnI
     TextView buttonPattern;
     TextView octave;
 
-    String sendingWord;
     private Button stopButton;
 
     @Override
@@ -560,7 +559,7 @@ public class SettingsScreen extends AppCompatActivity implements AdapterView.OnI
     public void openActivity2() {
         //String bluetoothWord = message;
 
-        MainActivity.remoteControl.sendWord(sendingWord);
+        MainActivity.remoteControl.sendWord(message);
         //Intent intent = new Intent(this, SettingsScreens.class);
         //intent.putExtra(EXTRA_TEXT, bluetoothWord);
         //startActivity(intent);
