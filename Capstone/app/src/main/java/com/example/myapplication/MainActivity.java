@@ -44,7 +44,12 @@ public class MainActivity extends AppCompatActivity implements BLEControllerList
     private boolean isAlive = false;
     private Thread heartBeatThread = null;
 
-    MainActivity() {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        getSupportActionBar().setTitle("guitARP Companion");
+
         this.bleController = BLEController.getInstance(this);
         this.remoteControl = new RemoteControl(this.bleController);
 
@@ -58,13 +63,6 @@ public class MainActivity extends AppCompatActivity implements BLEControllerList
         checkPermissions();
 
         disableButtons();
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        getSupportActionBar().setTitle("guitARP Companion");
 
         goToSettings = (Button) findViewById(R.id.buttonGo);
         goToSettings.setOnClickListener(new View.OnClickListener() {
