@@ -67,10 +67,6 @@ public class SettingsScreen extends AppCompatActivity implements AdapterView.OnI
             }
         });
 
-        TextView testing = findViewById(R.id.textView6);
-        testing.setText("Debug : " + sendingWord);
-
-
         textBPM = findViewById(R.id.textBPM);
         textLength = findViewById(R.id.textLength);
 
