@@ -124,7 +124,7 @@ public class RemoteControl {
         String digits = "0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
         int val = 0;
-        for (int i = 0; i < 32; i++) {
+        for (int i = 0; i < settings.length(); i++) {
             char c = tempSettings.charAt(i);
             int d = digits.indexOf(c);
             b[i] = (byte) (d + 48);
