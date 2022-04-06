@@ -59,7 +59,7 @@ public class SettingsScreen extends AppCompatActivity implements AdapterView.OnI
         getSupportActionBar().setTitle("guitARP Companion");
 
 
-        stopButton = (Button) findViewById(R.id.button10);
+        stopButton = (Button) findViewById(R.id.buttonStop);
         stopButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
