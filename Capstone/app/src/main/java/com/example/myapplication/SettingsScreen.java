@@ -50,6 +50,7 @@ public class SettingsScreen extends AppCompatActivity implements AdapterView.OnI
     TextView octave;
 
     private Button stopButton;
+    private Button toDisplay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +64,14 @@ public class SettingsScreen extends AppCompatActivity implements AdapterView.OnI
             @Override
             public void onClick(View v) {
                 sendStop();
+            }
+        });
+
+        toDisplay = (Button) findViewById(R.id.buttonDisplay);
+        toDisplay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openDisplayActivity();
             }
         });
 
@@ -573,6 +582,11 @@ public class SettingsScreen extends AppCompatActivity implements AdapterView.OnI
         //Intent intent = new Intent(this, SettingsScreens.class);
         //intent.putExtra(EXTRA_TEXT, bluetoothWord);
         //startActivity(intent);
+    }
+
+    public void openDisplayActivity() {
+        Intent intent = new Intent(this, Display.class);
+        startActivity(intent);
     }
 
     public void sendStop() {
