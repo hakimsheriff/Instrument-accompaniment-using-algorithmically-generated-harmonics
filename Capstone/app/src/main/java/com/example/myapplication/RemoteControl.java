@@ -123,7 +123,7 @@ public class RemoteControl {
             multiple *= 10;
         }
         return val;
-
+        -5800
 
         //harmony generated;
         //notes recognized;
