@@ -344,7 +344,7 @@ public class SettingsScreen extends AppCompatActivity implements AdapterView.OnI
         buttonC1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String tune = "T0";
+                String tune = "X0000000000000000000000000000000T0";
                 remoteControl.sendWord(tune);
                 message = message.substring(0,31)+'T'+'0';
                 buttonPattern.setText(message);
@@ -353,7 +353,7 @@ public class SettingsScreen extends AppCompatActivity implements AdapterView.OnI
         buttonA4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String tune = "T1";
+                String tune = "X0000000000000000000000000000000T1";
                 remoteControl.sendWord(tune);
                 message = message.substring(0,31)+'T'+'1';
                 buttonPattern.setText(message);
@@ -362,7 +362,7 @@ public class SettingsScreen extends AppCompatActivity implements AdapterView.OnI
         buttonC6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String tune = "T2";
+                String tune = "X0000000000000000000000000000000T2";
                 remoteControl.sendWord(tune);
                 message = message.substring(0,31)+'T'+'2';
                 buttonPattern.setText(message);
