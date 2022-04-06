@@ -344,25 +344,28 @@ public class SettingsScreen extends AppCompatActivity implements AdapterView.OnI
         buttonC1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                message = message.substring(0,32)+'0';
+                String tune = "T0";
+                remoteControl.sendWord(tune);
+                message = message.substring(0,31)+'T'+'0';
                 buttonPattern.setText(message);
-                remoteControl.sendWord(message);
             }
         });
         buttonA4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                message = message.substring(0,32)+'1';
+                String tune = "T1";
+                remoteControl.sendWord(tune);
+                message = message.substring(0,31)+'T'+'1';
                 buttonPattern.setText(message);
-                remoteControl.sendWord(message);
             }
         });
         buttonC6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                message = message.substring(0,32)+'2';
+                String tune = "T2";
+                remoteControl.sendWord(tune);
+                message = message.substring(0,31)+'T'+'2';
                 buttonPattern.setText(message);
-                remoteControl.sendWord(message);
             }
         });
 
@@ -573,7 +576,7 @@ public class SettingsScreen extends AppCompatActivity implements AdapterView.OnI
     }
 
     public void sendStop() {
-        String stopMessage = "E000000000000000000000000000000000";
+        String stopMessage = "E";
         remoteControl.sendWord(stopMessage);
         //this will also be the back button
     }
