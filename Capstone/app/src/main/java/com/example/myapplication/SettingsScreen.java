@@ -338,24 +338,31 @@ public class SettingsScreen extends AppCompatActivity implements AdapterView.OnI
                     buttonC6.setVisibility(View.VISIBLE);
                     message = message.substring(0,31)+'T'+message.substring(32);
                 }
+                buttonPattern.setText(message);
             }
         });
         buttonC1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 message = message.substring(0,32)+'0';
+                buttonPattern.setText(message);
+                remoteControl.sendWord(message);
             }
         });
         buttonA4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 message = message.substring(0,32)+'1';
+                buttonPattern.setText(message);
+                remoteControl.sendWord(message);
             }
         });
         buttonC6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 message = message.substring(0,32)+'2';
+                buttonPattern.setText(message);
+                remoteControl.sendWord(message);
             }
         });
 
