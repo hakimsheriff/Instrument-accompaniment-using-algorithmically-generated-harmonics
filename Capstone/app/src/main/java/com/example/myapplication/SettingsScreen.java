@@ -564,15 +564,10 @@ public class SettingsScreen extends AppCompatActivity implements AdapterView.OnI
     public void openActivity2() {
         String bluetoothWord = message;
 
-
+        remoteControl.sendWord(sendingWord);
         //Intent intent = new Intent(this, SettingsScreens.class);
         //intent.putExtra(EXTRA_TEXT, bluetoothWord);
         //startActivity(intent);
-    }
-
-    public void sendToBluetooth() {
-
-        remoteControl.sendWord(sendingWord);
     }
 
     public void sendStop() {
