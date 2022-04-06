@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".Display"></activity>
+        <activity
+            android:name=".Display"
+            android:parentActivityName=".SettingsScreen"></activity>
         <activity
             android:name=".SettingsScreen"
             android:parentActivityName=".MainActivity" />

@@ -112,14 +112,26 @@ public class RemoteControl {
         this.bleController.sendData(b);
     }
 
-    public void receiveWord() {
+    public int receiveWord() {
 
-        //this.bleController.readData();
+        byte b[] = this.bleController.readData();
+
+        int val = b[0];
+        val -= 48;
+        if((val >= 0) && (val <= 9)) {
+            return val;
+        }
+        return -1;
+
+
+        //harmony generated;
+        //notes recognized;
+        //12 to 96, %12 for note, /12 for octave;
     }
 
     public void sendWord(String settings) {
         String tempSettings = settings.toUpperCase();
-        byte b[] = new byte[32];
+        byte b[] = new byte[settings.length()];
 
         String digits = "0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
