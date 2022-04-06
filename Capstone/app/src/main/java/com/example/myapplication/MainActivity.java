@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements BLEControllerList
     private TextView logView;
     private Button connectButton;
     private Button disconnectButton;
+    private Button goToSettings;
 
 
     public static BLEController bleController;
@@ -63,6 +64,13 @@ public class MainActivity extends AppCompatActivity implements BLEControllerList
 
         disableButtons();
 
+        goToSettings = (Button) findViewById(R.id.buttonGo);
+        goToSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openSettings();
+            }
+        });
 
     }
 
@@ -106,7 +114,7 @@ public class MainActivity extends AppCompatActivity implements BLEControllerList
                 log("Connecting...");
                 bleController.connectToDevice(deviceAddress);
 
-                openSettings();
+
             }
         });
     }
